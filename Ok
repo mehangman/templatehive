@@ -8,30 +8,35 @@ struct Student
     float marks;
 };
 
-void display(struct Student s)
-{
-    printf("\nStudent Details");
-    printf("\nRoll Number: %d", s.roll);
-    printf("\nName: %s", s.name);
-    printf("\nMarks: %.2f", s.marks);
-}
-
 void main()
 {
-    struct Student s;
+    struct Student s[3];
+    int i;
 
     clrscr();
 
-    printf("Enter Roll Number: ");
-    scanf("%d", &s.roll);
+    for(i = 0; i < 3; i++)
+    {
+        printf("\nEnter details of Student %d", i+1);
 
-    printf("Enter Name: ");
-    scanf("%s", s.name);
+        printf("\nEnter Roll Number: ");
+        scanf("%d", &s[i].roll);
 
-    printf("Enter Marks: ");
-    scanf("%f", &s.marks);
+        printf("Enter Name: ");
+        scanf("%s", s[i].name);
 
-    display(s);
+        printf("Enter Marks: ");
+        scanf("%f", &s[i].marks);
+    }
+
+    printf("\n\nStudent Details");
+
+    for(i = 0; i < 3; i++)
+    {
+        printf("\n\nRoll Number: %d", s[i].roll);
+        printf("\nName: %s", s[i].name);
+        printf("\nMarks: %.2f", s[i].marks);
+    }
 
     getch();
 }
